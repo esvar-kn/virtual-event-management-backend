@@ -1,0 +1,31 @@
+{
+  "name": "virtual-event-management-backend",
+  "version": "1.0.0",
+  "description": "Assigment for NodeJS - Virtual Event Management Backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esvar-kn/virtual-event-management-backend.git"
+  },
+  "author": "Airtribe",
+  "license": "ISC",
+  "engines": {
+    "node": ">= 18.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.1",
+    "nodemailer": "^7.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
