@@ -56,10 +56,18 @@ const updateEvent = async (req, res) => {
     const updateData = req.body;
 
     try {
-        const updatedEvent = await eventModel.findByIdAndUpdate(id, updateData, { new: true, runValidators: true });
-        if (!updatedEvent) {
+       // First, find the existing event document
+        const eventToUpdate = await eventModel.findById(id);
+        if (!eventToUpdate) {
             return res.status(404).json({ message: "Event not found." });
         }
+        for (const key in updateData) {
+            // Only update fields that exist on the model to prevent issues
+            if (eventToUpdate[key] !== undefined) {
+                eventToUpdate[key] = updateData[key];
+            }
+        }
+        const updatedEvent = await eventToUpdate.save();
         res.status(200).json({ message: "Event updated successfully.", event: updatedEvent });
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error.", error: error.message });
@@ -103,7 +111,7 @@ const registerForEvent = async (req, res) => {
         await event.save();
 
         // Implement email notification logic here
-        await emailService.sendRegistrationEmail(userEmail, event.title);
+        await sendRegistrationEmail(userEmail, event.title);
         
         res.status(200).json({ message: "Successfully registered for the event." });
     } catch (error) {

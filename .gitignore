@@ -1,5 +1,6 @@
 # Dependency directories
 node_modules/
+test/
 
 # Logs
 logs
@@ -11,6 +12,7 @@ pids
 *.pid
 *.seed
 *.pid.lock
+*.tap
 
 # Coverage directory
 coverage
@@ -26,3 +28,4 @@ coverage
 
 # Optional eslint cache
 .eslintcache
+.DS_Store

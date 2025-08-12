@@ -4,7 +4,7 @@
   "description": "Assigment for NodeJS - Virtual Event Management Backend",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tap test/*.js --disable-coverage",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
@@ -26,6 +26,8 @@
     "nodemailer": "^7.0.5"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4",
+    "tap": "^21.1.0"
   }
 }
